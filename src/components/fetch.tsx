@@ -5,7 +5,7 @@ const initialState = {
   error: null,
   greeting: null,
 }
-
+/*
 function greetingReducer(state, action) {
   switch (action.type) {
     case 'SUCCESS': {
@@ -24,8 +24,8 @@ function greetingReducer(state, action) {
       return state
     }
   }
-}
-
+}*/
+/*
 export default function Fetch({url}) {
   const [{error, greeting}, dispatch] = useReducer(
     greetingReducer,
@@ -57,4 +57,4 @@ export default function Fetch({url}) {
       {error && <p role="alert">Oops, failed to fetch!</p>}
     </div>
   )
-}
+}*/
