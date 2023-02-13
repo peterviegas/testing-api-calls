@@ -24,8 +24,8 @@ function greetingReducer(state, action) {
       return state
     }
   }
-}*/
-/*
+}
+
 export default function Fetch({url}) {
   const [{error, greeting}, dispatch] = useReducer(
     greetingReducer,
