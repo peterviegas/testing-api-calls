@@ -1,6 +1,6 @@
 import React from 'react';
 // import react-testing methods
-import {render, fireEvent, waitFor, screen} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import App from './App';
 
 // import API mocking utilities from Mock Service Worker
@@ -97,4 +97,10 @@ test('check error message on 418', async () => {
   await waitFor( ()=> screen.findByText(/418/i));
   const element = screen.getByText(/418 I'm a tea pot/i);
   expect(element).toBeInTheDocument();
+});*/
+/*
+test('gets the data', async() => {
+	render(<PeopleContainer/>);
+	const out = await waitFor(() => screen.getByRole("people"));
+	expect(out).toHaveTextContent("Name: Luke Skywalker");
 });*/
