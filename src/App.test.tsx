@@ -65,29 +65,36 @@ afterAll(() => server.close())
 
 /*
 test('loads and displays greeting', async () => {
-  render(<Fetch url="/greeting" />)
+  render(<App />)
 
-  fireEvent.click(screen.getByText('Load Greeting'))
+  //fireEvent.click(screen.getByText('Load Greeting'))
 
-  await waitFor(() => screen.getByRole('heading'))
-
-  expect(screen.getByRole('heading')).toHaveTextContent('hello there')
-  expect(screen.getByRole('button')).toBeDisabled()
+  await waitFor(() => screen.findByText('Name:'))
+  expect(screen.getByText('Luke Skywalker')).toBeInTheDocument();
+  //expect(screen.getByRole('heading')).toHaveTextContent('hello there')
+  //expect(screen.getByRole('button')).toBeDisabled()
 })*/
-
-/*test('handles server error', async () => {
+/*
+test('handles server error', async () => {
   server.use(
-    rest.get('/greeting', (req, res, ctx) => {
+    rest.get('https://swapi.dev/api/people', (req, res, ctx) => {
+      
       return res(ctx.status(500))
     }),
   )
 
   render(<App />)
 
-  fireEvent.click(screen.getByText('Load Greeting'))
+  //fireEvent.click(screen.getByText('Load Greeting'))
 
-  await waitFor(() => screen.findByText('error'))
+  await waitFor( ()=> screen.findByText(/Oops.../i));
+  const element = screen.getByText(/"Oops... something went wrong, try again 🤕/i);
+  expect(element).toBeInTheDocument();
+})
 
-  expect(screen.getByRole('alert')).toHaveTextContent('Oops, failed to fetch!')
-  expect(screen.getByRole('button')).not.toBeDisabled()
-})*/
+test('check error message on 418', async () => {
+  render(<App />);
+  await waitFor( ()=> screen.findByText(/418/i));
+  const element = screen.getByText(/418 I'm a tea pot/i);
+  expect(element).toBeInTheDocument();
+});*/
